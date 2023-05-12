@@ -8,20 +8,30 @@ class User_model extends CI_Model{
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-        $result = curl_exec($curl);
-
-        return $result;
+        $response = curl_exec($curl);
+        curl_close($curl);
+        return $response;
     }
 
     public function gets(){
-        $url = self::http_request('http://localhost/ci3-backend/User/list');
-        $result = json_decode($url, true);
+        $url = $this->config->item('urlUserGets');
+        $response = $this->http_request($url);
+        $result = json_decode($response, true);
         return $result;
     }
 
     public function get($id=false){
-        $url = self::http_request('http://localhost/ci3-backend/User/listget/'.$id);
-        $result = json_decode($url, true);
+        $url = $this->config->item('urlUserGet');
+        $response = self::http_request($url.$id);
+        $result = json_decode($response, true);
+        return $result;
+    }
+
+    public function info(){
+        $data = $this->gets();
+        foreach($data->resultData as $row){
+            $result[] = $row;
+        }
         return $result;
     }
 

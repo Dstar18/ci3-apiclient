@@ -9,12 +9,14 @@ class User extends CI_Controller{
     }
 
     public function lists(){
-        $result = $this->User_model->gets();
-        echo json_encode($result);
+        $result['user'] = $this->User_model->gets();
+        // echo json_encode($result);
+        $this->load->view('user/user_view', $result);
     }
     
     public function list($id=false){
-        $result = $this->User_model->get($id);
-        echo json_encode($result);
+        $result['user'] = $this->User_model->get($id);
+        // echo json_encode($result);
+        $this->load->view('user/userlist_view', $result);
     }
 }
