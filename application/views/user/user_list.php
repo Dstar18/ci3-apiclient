@@ -17,7 +17,7 @@
                         <div class="card">
                             <!-- Navbar Content -->
                             <div class="card-header">
-                                <p class="card-title font-weight-bold">View Akun</p>
+                                <p class="card-title font-weight-bold">View User</p>
                                 <div class="card-tools">
                                     <a href="<?= base_url('user/lists/')?>" class="btn btn-sm btn-primary" title="Back to home">
                                     <!-- <a href="#" class="btn btn-sm btn-primary" title="Add user"> -->
@@ -35,7 +35,12 @@
                                             <div class="row">
                                             <?php
                                             if(isset($user['error'])){ ?>
-                                                <p>User not found</p>
+                                                <div class="error-page">
+                                                    <h4 class="headline text-warning"> 404</h4>
+                                                    <div class="error-content">
+                                                        <h5><i class="fas fa-exclamation-triangle text-warning"></i> Oops! <?=$user['error']?></h5>
+                                                    </div>
+                                                </div>
                                             <?php } else { ?>
                                                 <div class="col-7">
                                                     <h5 class="lead"><b><?=$user['firstname']?> <?=$user['lastname']?></b></h5>

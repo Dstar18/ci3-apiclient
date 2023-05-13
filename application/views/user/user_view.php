@@ -17,9 +17,9 @@
                         <div class="card">
                             <!-- Navbar Content -->
                             <div class="card-header">
-                                <p class="card-title font-weight-bold">Data Akun</p>
+                                <p class="card-title font-weight-bold">Data User</p>
                                 <div class="card-tools">
-                                    <a href="#" class="btn btn-sm btn-primary" title="Add user">
+                                    <a href="<?= base_url('user/insert')?>" class="btn btn-sm btn-primary" title="Insert user">
                                         <i class="fas fa-user-plus"></i>
                                     </a>
                                 </div>
@@ -27,6 +27,22 @@
                             <!-- /Navbar Content -->
                             <!-- Page Content -->
                             <div class="card-body" style="font-size: 14px">
+                                <!-- Message response -->
+                                <?php
+                                if(isset($response['error'])){ ?>
+                                    <div class="alert alert-danger alert-dismissible">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                        <p><i class="icon fas fa-ban"></i> Error! - <?=$response['error']?></p>
+                                    </div>
+                                <?php } ?>
+                                <?php
+                                if(isset($response['result'])){ ?>
+                                    <div class="alert alert-info alert-dismissible">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                        <p><i class="icon fas fa-check"></i> <?=$response['result']?></p>
+                                    </div>
+                                <?php } ?>
+                                <!-- /Message response -->
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
@@ -53,7 +69,7 @@
                                                     <a href="<?= base_url('user/list/'.$row['iduser'])?>" title="Edit">
                                                         <i class="fas fa-pencil-alt"></i>
                                                     </a>
-                                                    <a href="<?= base_url('user/list/'.$row['iduser'])?>" title="Delete">
+                                                    <a href="<?= base_url('user/delete/'.$row['iduser'])?>" onclick="return confirm('Anda yakin mau menghapus item ini ?')" title="Delete">
                                                         <i class="fas fa-trash"></i>
                                                     </a>
                                                 </td>
