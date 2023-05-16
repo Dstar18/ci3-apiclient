@@ -28,6 +28,17 @@ class User extends CI_Controller{
         $this->load->view('user/user_insert');
     }
 
+    public function update($id=false){
+        // if($this->input->method() == 'post'){
+        //     $post = $this->input->post(null, TRUE);
+        //     echo json_encode($post);
+        //     // $result['user'] = $this->User_model->update($post);
+        //     // return $this->load->view('user/user_update',$result);
+        // }
+        $result['user'] = $this->User_model->get($id);
+        $this->load->view('user/user_update', $result);
+    }
+
     public function delete($id=false){
         $response = $this->User_model->delete($id);
         // echo json_encode($result);

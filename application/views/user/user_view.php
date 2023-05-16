@@ -66,7 +66,7 @@
                                                     <a href="<?= base_url('user/list/'.$row['iduser'])?>" title="View">
                                                         <i class="fas fa-eye"></i>
                                                     </a>
-                                                    <a href="<?= base_url('user/list/'.$row['iduser'])?>" title="Edit">
+                                                    <a href="<?= base_url('user/update/'.$row['iduser'])?>" title="Edit">
                                                         <i class="fas fa-pencil-alt"></i>
                                                     </a>
                                                     <a href="<?= base_url('user/delete/'.$row['iduser'])?>" onclick="return confirm('Anda yakin mau menghapus item ini ?')" title="Delete">

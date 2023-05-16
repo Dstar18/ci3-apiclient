@@ -17,7 +17,7 @@
                         <div class="card">
                             <!-- Navbar Content -->
                             <div class="card-header">
-                                <p class="card-title font-weight-bold">Insert User</p>
+                                <p class="card-title font-weight-bold">Update User</p>
                                 <div class="card-tools">
                                     <a href="<?= base_url('user/lists/')?>" class="btn btn-sm btn-primary" title="Back to home">
                                         <i class="fas fa-home"></i>
@@ -47,65 +47,46 @@
                                 <div class="card bg-light d-flex flex-fill">
                                     <div class="card-body" style="font-size: 14px">
                                         <div class="tab-content p-0">
-                                            <form action="<?=base_url('user/insert')?>" method="post" class="form-horizontal">
+                                            <form action="<?=base_url('user/update')?>" method="post" class="form-horizontal">
                                                 <div class="form-group row">
                                                     <label for="" class="col-sm-2 col-form-label font-weight-normal">Role</label>
                                                     <div class="col-sm-10">
                                                         <select name="role_id" id="idrole" class="custom-select form-control" style="font-size: 14px">
                                                             <option value="">-- Pilih --</option>
-                                                            <option value="1" <?php if(isset($user['error'])){ ?><?=set_value('role_id') == '1' ? 'selected' : ''?><?php }?>>Admin</option>
-                                                            <option value="2" <?php if(isset($user['error'])){ ?><?=set_value('role_id') == '2' ? 'selected' : ''?><?php }?>>User</option>
+                                                            <option value="1" <?=$user['role_id'] == '1' ? 'selected' : ''?>>Admin</option>
+                                                            <option value="2" <?=$user['role_id'] == '2' ? 'selected' : ''?>>User</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="" class="col-sm-2 col-form-label font-weight-normal">NIP</label>
                                                     <div class="col-sm-10">
-                                                        <input type="number" class="form-control" name="nip" style="font-size: 14px"
-                                                        <?php if(isset($user['error'])){ ?>
-                                                            value="<?= set_value('nip') ?>"
-                                                        <?php }?>
-                                                        >
+                                                        <input type="number" class="form-control" name="nip" value="<?=$user['nip'] ?>" style="font-size: 14px">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="" class="col-sm-2 col-form-label font-weight-normal">Email</label>
                                                     <div class="col-sm-10">
-                                                        <input type="mail" class="form-control" name="email" style="font-size: 14px"
-                                                        <?php if(isset($user['error'])){ ?>
-                                                            value="<?= set_value('email') ?>"
-                                                        <?php }?>
-                                                        >
+                                                        <input type="mail" class="form-control" name="email" value="<?=$user['email']?>" style="font-size: 14px">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="" class="col-sm-2 col-form-label font-weight-normal">Firstname</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" name="firstname" style="font-size: 14px"
-                                                        <?php if(isset($user['error'])){ ?>
-                                                            value="<?= set_value('firstname') ?>"
-                                                        <?php }?>
-                                                        >
+                                                        <input type="text" class="form-control" name="firstname" value="<?=$user['firstname']?>" style="font-size: 14px">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="" class="col-sm-2 col-form-label font-weight-normal">Lastname</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" name="lastname" style="font-size: 14px"
-                                                        <?php if(isset($user['error'])){ ?>
-                                                            value="<?= set_value('lastname') ?>"
-                                                        <?php }?>
-                                                        >
+                                                        <input type="text" class="form-control" name="lastname" value="<?=$user['lastname']?>" style="font-size: 14px">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="" class="col-sm-2 col-form-label font-weight-normal">Password</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" name="password" style="font-size: 14px"
-                                                        <?php if(isset($user['error'])){ ?>
-                                                            value="<?= set_value('password') ?>"
-                                                        <?php }?>
-                                                        >
+                                                        <input type="text" class="form-control" name="password"  style="font-size: 14px">
+                                                        <input type="text" class="form-control" value="<?=$user['password']?>" style="font-size: 14px" readonly>
                                                     </div>
                                                 </div>
 
