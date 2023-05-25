@@ -10,7 +10,7 @@ class User extends CI_Controller{
 
     public function lists($response=false){
         $result['user'] = $this->User_model->gets();
-        $result['response'] = $response;
+        $result['message'] = $response;
         $this->load->view('user/user_view', $result);
     }
     
@@ -22,26 +22,26 @@ class User extends CI_Controller{
     public function insert(){
         if($this->input->method() == 'post'){
             $post = $this->input->post(null, TRUE);
-            $result['user'] = $this->User_model->insert($post);
+            $result['message'] = $this->User_model->insert($post);
             return $this->load->view('user/user_insert',$result);
         }
         $this->load->view('user/user_insert');
     }
 
     public function update($id=false){
-        // if($this->input->method() == 'post'){
-        //     $post = $this->input->post(null, TRUE);
-        //     echo json_encode($post);
-        //     // $result['user'] = $this->User_model->update($post);
-        //     // return $this->load->view('user/user_update',$result);
-        // }
+        if($this->input->method() == 'post'){
+            $post = $this->input->post(null, TRUE);
+            $result['message'] = $this->User_model->update($post);
+            // echo json_encode($result);
+            $result['user'] = $this->User_model->get($id);
+            return $this->load->view('user/user_update',$result);
+        }
         $result['user'] = $this->User_model->get($id);
         $this->load->view('user/user_update', $result);
     }
 
     public function delete($id=false){
         $response = $this->User_model->delete($id);
-        // echo json_encode($result);
         $this->lists($response);
     }
 }

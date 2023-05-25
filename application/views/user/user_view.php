@@ -29,17 +29,17 @@
                             <div class="card-body" style="font-size: 14px">
                                 <!-- Message response -->
                                 <?php
-                                if(isset($response['error'])){ ?>
+                                if(isset($message['error'])){ ?>
                                     <div class="alert alert-danger alert-dismissible">
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                        <p><i class="icon fas fa-ban"></i> Error! - <?=$response['error']?></p>
+                                        <p><i class="icon fas fa-ban"></i> Error! - <?=$message['error']?></p>
                                     </div>
                                 <?php } ?>
                                 <?php
-                                if(isset($response['result'])){ ?>
+                                if(isset($message['result'])){ ?>
                                     <div class="alert alert-info alert-dismissible">
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                        <p><i class="icon fas fa-check"></i> <?=$response['result']?></p>
+                                        <p><i class="icon fas fa-check"></i> <?=$message['result']?></p>
                                     </div>
                                 <?php } ?>
                                 <!-- /Message response -->

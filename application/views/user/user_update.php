@@ -27,66 +27,66 @@
                             </div>
                             <!-- /Navbar Content -->
                             <!-- Page Content -->
-                            <div class="card-body">
-                                <!-- Message response -->
+                            <div class="card-body" style="font-size: 14px">
+                                <!--  Message response -->
                                 <?php
-                                if(isset($user['error'])){ ?>
+                                if(isset($message['error'])){ ?>
                                     <div class="alert alert-danger alert-dismissible">
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                        <p><i class="icon fas fa-ban"></i> Error! - <?=$user['error']?></p>
+                                        <p><i class="icon fas fa-ban"></i> Error! - <?=$message['error']?></p>
                                     </div>
                                 <?php } ?>
                                 <?php
-                                if(isset($user['result'])){ ?>
+                                if(isset($message['result'])){ ?>
                                     <div class="alert alert-info alert-dismissible">
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                        <p><i class="icon fas fa-check"></i> <?=$user['result']?></p>
+                                        <p><i class="icon fas fa-check"></i> <?=$message['result']?></p>
                                     </div>
                                 <?php } ?>
                                 <!-- /Message response -->
                                 <div class="card bg-light d-flex flex-fill">
                                     <div class="card-body" style="font-size: 14px">
                                         <div class="tab-content p-0">
-                                            <form action="<?=base_url('user/update')?>" method="post" class="form-horizontal">
+                                            <form action="<?=base_url('user/update/'.$user['iduser'])?>" method="post" class="form-horizontal">
+                                                <input type="hidden" name="iduser" value="<?= form_error('iduser') ? set_value('iduser') : $user['iduser'] ?>" readonly>
                                                 <div class="form-group row">
                                                     <label for="" class="col-sm-2 col-form-label font-weight-normal">Role</label>
                                                     <div class="col-sm-10">
                                                         <select name="role_id" id="idrole" class="custom-select form-control" style="font-size: 14px">
                                                             <option value="">-- Pilih --</option>
-                                                            <option value="1" <?=$user['role_id'] == '1' ? 'selected' : ''?>>Admin</option>
-                                                            <option value="2" <?=$user['role_id'] == '2' ? 'selected' : ''?>>User</option>
+                                                            <option value="1" <?= form_error('role_id') ? set_value('role_id') == '1' : $user['role_id'] == '1' ? 'selected' : ''?> >Admin</option>
+                                                            <option value="2" <?= form_error('role_id') ? set_value('role_id') == '2' : $user['role_id'] == '2' ? 'selected' : ''?> >User</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="" class="col-sm-2 col-form-label font-weight-normal">NIP</label>
                                                     <div class="col-sm-10">
-                                                        <input type="number" class="form-control" name="nip" value="<?=$user['nip'] ?>" style="font-size: 14px">
+                                                        <input type="number" class="form-control" name="nip" value="<?= form_error('nip') ? set_value('nip') : $user['nip'] ?>" style="font-size: 14px" >
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="" class="col-sm-2 col-form-label font-weight-normal">Email</label>
                                                     <div class="col-sm-10">
-                                                        <input type="mail" class="form-control" name="email" value="<?=$user['email']?>" style="font-size: 14px">
+                                                        <input type="mail" class="form-control" name="email" value="<?= form_error('email') ? set_value('email') : $user['email'] ?>" style="font-size: 14px">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="" class="col-sm-2 col-form-label font-weight-normal">Firstname</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" name="firstname" value="<?=$user['firstname']?>" style="font-size: 14px">
+                                                        <input type="text" class="form-control" name="firstname"value="<?= form_error('firstname') ? set_value('firstname') : $user['firstname'] ?>" style="font-size: 14px">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="" class="col-sm-2 col-form-label font-weight-normal">Lastname</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" name="lastname" value="<?=$user['lastname']?>" style="font-size: 14px">
+                                                        <input type="text" class="form-control" name="lastname" value="<?= form_error('lastname') ? set_value('lastname') : $user['lastname'] ?>" style="font-size: 14px">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="" class="col-sm-2 col-form-label font-weight-normal">Password</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" name="password"  style="font-size: 14px">
-                                                        <input type="text" class="form-control" value="<?=$user['password']?>" style="font-size: 14px" readonly>
+                                                        <input type="text" class="form-control" name="password" value="<?= form_error('password') ? set_value('password') : $user['password'] ?>" style="font-size: 14px">
                                                     </div>
                                                 </div>
 

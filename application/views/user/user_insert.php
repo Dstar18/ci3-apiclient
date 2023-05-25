@@ -27,20 +27,20 @@
                             </div>
                             <!-- /Navbar Content -->
                             <!-- Page Content -->
-                            <div class="card-body">
+                            <div class="card-body" style="font-size: 14px">
                                 <!-- Message response -->
                                 <?php
-                                if(isset($user['error'])){ ?>
+                                if(isset($message['error'])){ ?>
                                     <div class="alert alert-danger alert-dismissible">
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                        <p><i class="icon fas fa-ban"></i> Error! - <?=$user['error']?></p>
+                                        <p><i class="icon fas fa-ban"></i> Error! - <?=$message['error']?></p>
                                     </div>
                                 <?php } ?>
                                 <?php
-                                if(isset($user['result'])){ ?>
+                                if(isset($message['result'])){ ?>
                                     <div class="alert alert-info alert-dismissible">
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                        <p><i class="icon fas fa-check"></i> <?=$user['result']?></p>
+                                        <p><i class="icon fas fa-check"></i> <?=$message['result']?></p>
                                     </div>
                                 <?php } ?>
                                 <!-- /Message response -->
@@ -53,8 +53,8 @@
                                                     <div class="col-sm-10">
                                                         <select name="role_id" id="idrole" class="custom-select form-control" style="font-size: 14px">
                                                             <option value="">-- Pilih --</option>
-                                                            <option value="1" <?php if(isset($user['error'])){ ?><?=set_value('role_id') == '1' ? 'selected' : ''?><?php }?>>Admin</option>
-                                                            <option value="2" <?php if(isset($user['error'])){ ?><?=set_value('role_id') == '2' ? 'selected' : ''?><?php }?>>User</option>
+                                                            <option value="1" <?php if(isset($message['error'])){ ?><?=set_value('role_id') == '1' ? 'selected' : ''?><?php }?>>Admin</option>
+                                                            <option value="2" <?php if(isset($message['error'])){ ?><?=set_value('role_id') == '2' ? 'selected' : ''?><?php }?>>User</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -62,7 +62,7 @@
                                                     <label for="" class="col-sm-2 col-form-label font-weight-normal">NIP</label>
                                                     <div class="col-sm-10">
                                                         <input type="number" class="form-control" name="nip" style="font-size: 14px"
-                                                        <?php if(isset($user['error'])){ ?>
+                                                        <?php if(isset($message['error'])){ ?>
                                                             value="<?= set_value('nip') ?>"
                                                         <?php }?>
                                                         >
@@ -72,7 +72,7 @@
                                                     <label for="" class="col-sm-2 col-form-label font-weight-normal">Email</label>
                                                     <div class="col-sm-10">
                                                         <input type="mail" class="form-control" name="email" style="font-size: 14px"
-                                                        <?php if(isset($user['error'])){ ?>
+                                                        <?php if(isset($message['error'])){ ?>
                                                             value="<?= set_value('email') ?>"
                                                         <?php }?>
                                                         >
@@ -82,7 +82,7 @@
                                                     <label for="" class="col-sm-2 col-form-label font-weight-normal">Firstname</label>
                                                     <div class="col-sm-10">
                                                         <input type="text" class="form-control" name="firstname" style="font-size: 14px"
-                                                        <?php if(isset($user['error'])){ ?>
+                                                        <?php if(isset($message['error'])){ ?>
                                                             value="<?= set_value('firstname') ?>"
                                                         <?php }?>
                                                         >
@@ -92,7 +92,7 @@
                                                     <label for="" class="col-sm-2 col-form-label font-weight-normal">Lastname</label>
                                                     <div class="col-sm-10">
                                                         <input type="text" class="form-control" name="lastname" style="font-size: 14px"
-                                                        <?php if(isset($user['error'])){ ?>
+                                                        <?php if(isset($message['error'])){ ?>
                                                             value="<?= set_value('lastname') ?>"
                                                         <?php }?>
                                                         >
@@ -102,7 +102,7 @@
                                                     <label for="" class="col-sm-2 col-form-label font-weight-normal">Password</label>
                                                     <div class="col-sm-10">
                                                         <input type="text" class="form-control" name="password" style="font-size: 14px"
-                                                        <?php if(isset($user['error'])){ ?>
+                                                        <?php if(isset($message['error'])){ ?>
                                                             value="<?= set_value('password') ?>"
                                                         <?php }?>
                                                         >
